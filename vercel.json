@@ -3,7 +3,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "app.controller.ts",
+            "dest": "app.controller.js",
             "methods": [
                 "GET",
                 "POST",
