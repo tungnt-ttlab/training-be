@@ -2,10 +2,9 @@
     "version": 2,
     "builds": [
         {
-            "src": "src/**/*.ts",
+            "src": "src/main.ts",
             "use": "@vercel/node",
             "config": {
-                "maxLambdaSize": "50mb",
                 "buildCommand": "npm run build"
             }
         }
