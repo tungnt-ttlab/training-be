@@ -3,16 +3,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "app.controller.js",
-            "methods": [
-                "GET",
-                "POST",
-                "PUT",
-                "PATCH",
-                "DELETE",
-                "HEAD",
-                "OPTIONS"
-            ]
+            "dest": "app.controller.js"
         }
     ]
 }
