@@ -12,7 +12,8 @@ import { DEFAULT_LANGUAGE } from '../common/constants';
         NestI18nModule.forRoot({
             fallbackLanguage: DEFAULT_LANGUAGE,
             loaderOptions: {
-                path: path.join('src/i18n'),
+                path: path.join('dist/i18n'),
+                // path: path.join('src/i18n'),
                 watch: true,
             },
             resolvers: [AcceptLanguageResolver],
