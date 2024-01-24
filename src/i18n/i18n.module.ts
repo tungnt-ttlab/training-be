@@ -13,7 +13,6 @@ import { DEFAULT_LANGUAGE } from '../common/constants';
             fallbackLanguage: DEFAULT_LANGUAGE,
             loaderOptions: {
                 path: path.join('dist/i18n'),
-                // path: path.join('src/i18n'),
                 watch: true,
             },
             resolvers: [AcceptLanguageResolver],
