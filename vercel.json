@@ -9,6 +9,7 @@
     "installCommand": "npm install",
     "outputDirectory": "dist",
     "buildCommand": "npm run build",
+    "devCommand": "npm start",
     "routes": [
         {
             "src": "/(.*)",
