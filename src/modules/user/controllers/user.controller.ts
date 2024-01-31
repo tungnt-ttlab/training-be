@@ -158,6 +158,8 @@ export class UserController extends BaseController {
         query: GetUserListQuery,
     ) {
         try {
+            console.log('ahihi');
+
             const result =
                 await this.userService.findAllAndCountUserByQuery(query);
             return new SuccessResponse(result);
