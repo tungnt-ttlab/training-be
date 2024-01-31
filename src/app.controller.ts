@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Options } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Ping API')
@@ -8,5 +8,10 @@ export class AppController {
     @Get('ping')
     pingAlive() {
         return 'pong';
+    }
+
+    @Options('*')
+    handleOptions() {
+        // Xử lý Preflight request
     }
 }
