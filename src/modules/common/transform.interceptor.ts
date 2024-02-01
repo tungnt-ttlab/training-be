@@ -25,6 +25,10 @@ export class TransformInterceptor implements NestInterceptor {
                 }).includes(data?.code)
                     ? data?.code
                     : null;
+                console.log(
+                    JSON.stringify(context.switchToHttp().getResponse()),
+                );
+
                 if (httpCode) {
                     context.switchToHttp().getResponse().status(httpCode);
                 }
