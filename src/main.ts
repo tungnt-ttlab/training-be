@@ -2,7 +2,7 @@ import 'winston-daily-rotate-file';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { WinstonModule } from 'nest-winston';
-// import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
+import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 import { ConfigService } from '@nestjs/config';
 import helmet from 'helmet';
 import ConfigKey from './common/config/config-key';
@@ -41,31 +41,26 @@ async function bootstrap() {
     });
     app.use(helmet());
     const configService = app.get(ConfigService);
-    // const whiteList = configService.get(ConfigKey.CORS_WHITELIST) || '*';
-    // const corsOptions: CorsOptions = {
-    //     origin:
-    //         whiteList?.split(',')?.length > 1
-    //             ? whiteList.split(',')
-    //             : whiteList,
-    //     credentials: false,
-    //     allowedHeaders: [
-    //         'Content-Type',
-    //         'Authorization',
-    //         'Language',
-    //         'X-Timezone',
-    //         'X-Timezone-Name',
-    //         'X-Mssp-Id',
-    //         'X-Organization-Id',
-    //     ],
-    //     optionsSuccessStatus: 200,
-    //     methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-    // };
-    // app.enableCors(corsOptions);
-    app.enableCors({
-        origin: 'https://training-fe.vercel.app',
-        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    const whiteList = configService.get(ConfigKey.CORS_WHITELIST) || '*';
+    const corsOptions: CorsOptions = {
+        origin:
+            whiteList?.split(',')?.length > 1
+                ? whiteList.split(',')
+                : whiteList,
         credentials: false,
-    });
+        allowedHeaders: [
+            'Content-Type',
+            'Authorization',
+            'Language',
+            'X-Timezone',
+            'X-Timezone-Name',
+            'X-Mssp-Id',
+            'X-Organization-Id',
+        ],
+        optionsSuccessStatus: 200,
+        methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+    };
+    app.enableCors(corsOptions);
 
     // setup prefix of route
     app.setGlobalPrefix(configService.get(ConfigKey.BASE_PATH));
