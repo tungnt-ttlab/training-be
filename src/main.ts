@@ -53,8 +53,6 @@ async function bootstrap() {
             'Language',
             'X-Timezone',
             'X-Timezone-Name',
-            'X-Mssp-Id',
-            'X-Organization-Id',
         ],
         optionsSuccessStatus: 200,
         methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
