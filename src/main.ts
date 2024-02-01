@@ -47,7 +47,6 @@ async function bootstrap() {
             whiteList?.split(',')?.length > 1
                 ? whiteList.split(',')
                 : whiteList,
-        credentials: false,
         allowedHeaders: [
             'Content-Type',
             'Authorization',
